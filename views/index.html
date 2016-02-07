@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>StockJump</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+        
+        <script src="https://code.highcharts.com/stock/highstock.js"></script>
+        <script src="chart.js"></script>
+    </head>
+    
+    <body ng-app="chart" ng-controller="ChartController">
+    
+        <div>
+            <div id="container" style="min-width: 600px; height: 400px; margin: 0 auto">
+                
+            </div>
+            
+            <form ng-submit="submitSymbol()" style="text-align: center; margin-top: 50px;">
+                <p>Enter a Stock Symbol to display in the chart! (ex: AAPL)</p>
+                <input type="text" ng-model="symbol" name="Enter stock symbol"/>
+                <button type="submit">Submit</button>
+            </form>
+            
+        </div>
+        
+        <!--<div ng-repeat="tag in tags" ng-click="removeTag($index)">{{tag}}</div>-->
+        
+    
+    </body>    
+</html>
