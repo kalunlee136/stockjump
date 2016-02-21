@@ -28,7 +28,7 @@ app.use('/users', users);
 
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
-  console.log("Chat server listening at", addr.address + ":" + addr.port);
+  console.log("Server listening at", addr.address + ":" + addr.port);
 });
 
 
@@ -55,10 +55,16 @@ io.on('connection', function (socket) {
         var unix_date = Date.UTC(list[0], list[1] - 1, list[2] - 1);
         return [unix_date, date[4]];
       });
+      
       io.emit('news',{'name': symbol, 'data': stock, 'color': getRandomColor()});
     });
     
   });
+  
+  socket.on('remove',function (id) {
+    io.emit('remove',id);
+    
+  })
 });
 
 
